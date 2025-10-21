@@ -1,0 +1,70 @@
+Internship Report — Phishing Email Analysis
+Filename: internship_phishing_email_report.txt
+
+1. Title
+Internship Report — Identifying Phishing Characteristics in Emails
+
+2. Intern Details
+Name: Shahid Pasha
+
+3. Purpose
+This report documents the identification of phishing indicators in a suspicious email sample. The objective is to analyze email content, headers, links, and sender information to recognize common phishing traits, enhancing awareness of email security threats.
+
+4. Tools
+- Email client or saved email file (text or .eml)  
+- Free online email header analyzer (e.g., MXToolbox, Google Admin Toolbox)  
+- Optional: web browser to verify URLs safely in a controlled environment  
+
+5. Environment / Setup
+- Sample phishing emails obtained from free online resources (e.g., Anti-Phishing Working Group, PhishTank).  
+- Emails were opened in a controlled environment to prevent accidental clicks on malicious links.  
+- Headers extracted from email client or raw email file and analyzed using online tools.  
+
+6. Tasks Performed
+
+6.1 Examine sender’s email address
+- Checked for discrepancies in the sender domain vs legitimate domain.  
+- Looked for slight misspellings or extra characters (e.g., `support@paypal-secure.com` vs `support@paypal.com`).  
+
+6.2 Analyze email headers
+- Used online header analyzer to trace the route and verify originating IP.  
+- Checked for discrepancies in SPF, DKIM, and DMARC authentication results.  
+
+6.3 Inspect links and attachments
+- Hovered over all links to check actual URL vs displayed text.  
+- Did not click links; noted suspicious links (e.g., URLs with random characters, different domain, or IP-based URLs).  
+- Checked attachment types — suspicious types included `.exe`, `.zip`, `.scr`.  
+
+6.4 Evaluate email content
+- Identified urgent or threatening language prompting immediate action (e.g., “Your account will be locked,” “Click immediately”).  
+- Checked for mismatched greetings or unexpected personalization.  
+- Noted spelling, grammar errors, or unusual formatting.  
+
+7. Observations / Phishing Indicators Found
+- Sender address: appeared spoofed with slight domain variation.  
+- Header analysis: originating IP did not match claimed service provider; SPF/DKIM failed.  
+- Links: URL mismatched displayed text; redirected to suspicious domain.  
+- Attachment: included `.zip` file with potential risk.  
+- Email body: contained urgent language and minor spelling/grammar errors.  
+
+8. Summary of Findings
+- The email displayed multiple classic phishing characteristics: sender spoofing, header anomalies, suspicious links, unsafe attachment, urgent messaging, and spelling mistakes.  
+- These traits confirm that the sample email is likely a phishing attempt.  
+
+9. Ethical Considerations
+- Sample emails were analyzed in a controlled environment.  
+- No malicious links or attachments were executed.  
+- Analysis conducted for educational purposes only.  
+
+10. Conclusion
+This exercise improved understanding of phishing email characteristics, helping to identify suspicious emails and mitigate security risks. Continued practice with phishing samples strengthens practical email security awareness.
+
+11. References & Further Reading
+- Anti-Phishing Working Group: https://apwg.org  
+- PhishTank: https://www.phishtank.com  
+- MXToolbox Email Header Analyzer: https://mxtoolbox.com/EmailHeaders.aspx  
+- Google Admin Toolbox Header Analyzer: https://toolbox.googleapps.com/apps/headerparser/  
+
+
+-------------------------
+End of report.
