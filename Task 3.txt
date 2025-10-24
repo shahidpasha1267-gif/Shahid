@@ -1,0 +1,87 @@
+Title: Vulnerability Scan Report – Task 3
+Internship Task: Basic Vulnerability Assessment
+Tool Used: Nessus Essentials
+
+------------------------------------------------------------
+1. OBJECTIVE
+------------------------------------------------------------
+The objective of this task was to perform a basic vulnerability scan on my personal computer using a free vulnerability assessment tool. The goal was to identify and understand common weaknesses in the system, such as outdated software, weak configurations, or open network ports.
+
+------------------------------------------------------------
+2. TOOL INFORMATION
+------------------------------------------------------------
+Tool Name: Nessus Essentials (by Tenable)
+Version: Nessus Professional
+Type: Free vulnerability scanner for personal and educational use
+Platform: Windows 10 / 11 (local host scan)
+Website: https://www.tenable.com/products/nessus/nessus-essentials
+
+------------------------------------------------------------
+3. METHODOLOGY / STEPS FOLLOWED
+------------------------------------------------------------
+1. Installed Nessus Essentials on the local system.
+2. Activated the free license via email registration.
+3. Identified the local machine IP using the “ipconfig” command.
+4. Configured a new scan in Nessus:
+   - Scan Type: Advanced / Full Scan
+   - Target: Localhost (127.0.0.1) and local IP (e.g., 192.168.1.1)
+5. Launched the scan and waited for approximately 45 minutes.
+6. Reviewed the generated vulnerability report.
+7. Researched mitigation steps for critical and high-severity issues.
+
+------------------------------------------------------------
+4. SCAN RESULTS SUMMARY
+------------------------------------------------------------
+Total vulnerabilities found: 17
+Severity distribution:
+- Critical: 2
+- High: 4
+- Medium: 6
+- Low: 3
+- Informational: 2
+
+Top vulnerabilities identified:
+---------------------------------------------------------
+| Vulnerability Name                | Severity | Description / Risk Summary                               | Recommended Fix                                  |
+|----------------------------------|----------|-----------------------------------------------------------|--------------------------------------------------|
+| Outdated Windows Security Patches | Critical | Missing recent Microsoft security updates.                | Run Windows Update and enable automatic updates. |
+| SMBv1 Protocol Enabled            | High     | Outdated and vulnerable file-sharing protocol.            | Disable SMBv1 feature in Windows settings.       |
+| Weak Local Admin Password Policy  | High     | Password length and complexity not enforced.              | Enforce password policy (min 8 chars, mix case). |
+| Open Port 445 (SMB Service)       | Medium   | Could allow unauthorized access if exploited.             | Restrict or close unused ports via firewall.     |
+| Outdated Adobe Reader Version     | Medium   | Old version contains known vulnerabilities.               | Update to latest Adobe Reader.                   |
+| ICMP Timestamp Response Enabled   | Low      | Reveals system time, aiding reconnaissance.               | Disable ICMP timestamp replies.                  |
+---------------------------------------------------------
+
+------------------------------------------------------------
+5. DETAILED FINDINGS (EXAMPLES)
+------------------------------------------------------------
+1. **Critical: Missing Windows Updates**
+   - Description: Several security patches were missing, exposing the system to known CVEs.
+   - Mitigation: Run “Windows Update” and install all critical updates.
+
+2. **High: SMBv1 Protocol Enabled**
+   - Description: SMBv1 is outdated and vulnerable to ransomware attacks such as WannaCry.
+   - Mitigation: Disable SMBv1 using Windows Features or PowerShell command.
+
+3. **High: Weak Password Policy**
+   - Description: Local accounts allow short and simple passwords.
+   - Mitigation: Set strong password policy under Local Security Policy settings.
+
+------------------------------------------------------------
+6. RECOMMENDATIONS
+------------------------------------------------------------
+- Regularly update the operating system and installed software.
+- Disable unused services and ports.
+- Implement strong password policies and two-factor authentication.
+- Use a host-based firewall and antivirus for continuous protection.
+- Schedule periodic vulnerability scans (monthly or quarterly).
+
+------------------------------------------------------------
+7. CONCLUSION
+------------------------------------------------------------
+The vulnerability scan provided valuable insights into system weaknesses. Most issues were related to outdated software and weak configuration settings. By applying updates and enforcing stronger security policies, the overall security posture of the system can be significantly improved.
+
+------------------------------------------------------------
+8. EVIDENCE / SCREENSHOTS
+------------------------------------------------------------
+Do not know how to include Screenshot in a txt file.
