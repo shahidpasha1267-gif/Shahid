@@ -1,0 +1,105 @@
+Internship Task 4 Report
+------------------------------------------------------------
+Task Title   : Setup and Use a Firewall on Linux (UFW)
+Objective    : Configure and test basic firewall rules to allow or block traffic.
+Tool Used    : UFW (Uncomplicated Firewall) on Linux
+------------------------------------------------------------
+
+Step 1: Check UFW Status
+------------------------------------------------------------
+Command:
+sudo ufw status
+If UFW is inactive, enable it using:
+sudo ufw enable
+
+Expected Output:
+Status: active
+
+------------------------------------------------------------
+
+Step 2: List Current Firewall Rules
+------------------------------------------------------------
+Command:
+sudo ufw status numbered
+
+Expected Output:
+[ 1] 22/tcp ALLOW Anywhere
+(Example output showing numbered rules)
+
+------------------------------------------------------------
+
+Step 3: Block Inbound Traffic on Port 23 (Telnet)
+------------------------------------------------------------
+Command:
+sudo ufw deny 23
+
+Verification:
+sudo ufw status
+
+Expected Output:
+23/tcp DENY Anywhere
+
+------------------------------------------------------------
+
+Step 4: Test the Rule
+------------------------------------------------------------
+Command:
+telnet localhost 23
+
+Expected Result:
+Connection refused (indicates rule working correctly)
+
+------------------------------------------------------------
+
+Step 5: Allow SSH (Port 22)
+------------------------------------------------------------
+Command:
+sudo ufw allow 22
+
+Verification:
+sudo ufw status
+
+Expected Output:
+22/tcp ALLOW Anywhere
+
+------------------------------------------------------------
+
+Step 6: Remove Test Block Rule
+------------------------------------------------------------
+Command:
+sudo ufw delete deny 23
+
+Verification:
+sudo ufw status
+(Confirm rule is removed)
+
+------------------------------------------------------------
+
+Step 7: Optional – Disable Firewall (if needed)
+------------------------------------------------------------
+Command:
+sudo ufw disable
+or keep it active for security:
+sudo ufw enable
+
+------------------------------------------------------------
+
+Explanation:
+------------------------------------------------------------
+- UFW (Uncomplicated Firewall) is a command-line tool for managing netfilter.
+- It filters traffic using ALLOW and DENY rules.
+- Blocking port 23 helps prevent insecure Telnet connections.
+- Allowing port 22 ensures secure SSH access remains available.
+- Firewalls help protect systems from unauthorized network access.
+
+------------------------------------------------------------
+
+Outcome:
+------------------------------------------------------------
+✔ Understood how firewall rules control network traffic.
+✔ Learned to add, verify, and delete rules in UFW.
+✔ Gained basic skills in Linux firewall configuration.
+
+------------------------------------------------------------
+End of Report
+------------------------------------------------------------
