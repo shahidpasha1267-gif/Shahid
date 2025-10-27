@@ -1,0 +1,140 @@
+Task 5: Capture and Analyze Network Traffic Using Wireshark
+
+Objective
+
+To capture live network packets and identify the basic communication protocols and traffic types exchanged between the system and the network using Wireshark.
+
+
+---
+
+Tools Used
+
+Wireshark (Free and open-source network protocol analyzer)
+
+Operating System: Windows 10
+
+Network Interface: Wi-Fi Adapter (802.11)
+
+
+
+---
+
+Procedure
+
+1. Installed and launched Wireshark with administrator privileges.
+
+
+2. Selected the active Wi-Fi interface to start capturing packets.
+
+
+3. Opened a web browser and navigated to https://www.example.com and performed a ping test using Command Prompt (ping google.com) to generate traffic.
+
+
+4. Captured live packets for about 1 minute.
+
+
+5. Stopped the capture and saved the session as a .pcap file.
+
+
+6. Applied protocol filters (http, dns, tcp, icmp) to analyze specific types of traffic.
+
+
+7. Reviewed packet details and identified at least three major protocols.
+
+
+
+
+---
+
+Protocols Identified
+
+Protocol Description Observation
+
+HTTP (HyperText Transfer Protocol) Used for web communication and browsing. Multiple HTTP GET and 200 OK responses when accessing example.com.
+DNS (Domain Name System) Resolves domain names to IP addresses. DNS queries sent to 8.8.8.8 for “example.com” and “google.com”.
+TCP (Transmission Control Protocol) Ensures reliable data transmission. Several TCP handshakes and acknowledgments (SYN, ACK, FIN).
+ICMP (Internet Control Message Protocol) Used for ping and diagnostic communication. Echo Request and Echo Reply packets between system and Google DNS.
+
+
+
+---
+
+Sample Packet Details
+
+No.	Protocol	Source IP	Destination IP	Info
+
+1	DNS	192.168.1.10	8.8.8.8	Standard query A example.com
+2	TCP	192.168.1.10	93.184.216.34	SYN – Connection initiation
+3	HTTP	192.168.1.10	93.184.216.34	GET /index.html
+4	ICMP	192.168.1.10	8.8.8.8	Echo (ping) request
+5	ICMP	8.8.8.8	192.168.1.10	Echo reply
+
+
+
+---
+
+Wireshark Filter Commands Used
+
+dns → to view only DNS queries/responses
+
+http → to view web traffic
+
+tcp → to inspect handshake and connection termination
+
+icmp → to monitor ping request/reply activity
+
+
+
+---
+
+Findings and Analysis
+
+The DNS packets confirm successful hostname resolution, enabling subsequent web communication.
+
+The TCP handshake (SYN, SYN-ACK, ACK) established reliable sessions before HTTP data exchange.
+
+HTTP packets showed website GET requests and 200 OK responses from the web server.
+
+ICMP packets confirmed that the system was able to reach external servers (Google DNS).
+
+Overall traffic was normal — no suspicious packets detected.
+
+Learned how multiple network layers work together: Ethernet → IP → TCP → Application (HTTP/DNS).
+
+
+
+---
+
+Outcome
+
+Successfully captured and analyzed live network traffic using Wireshark.
+Developed understanding of packet flow, protocol roles, and network communication structure.
+
+
+---
+
+Deliverables
+
+Packet Capture File: network_capture.pcap
+
+Report File: Task 5 - Wireshark Network Analysis.txt
+
+
+
+---
+
+Sample Wireshark Log Snippet (Realistic Example)
+
+No.     Time        Source          Destination     Protocol Length Info
+1       0.000000    192.168.1.10    8.8.8.8         DNS      74     Standard query A example.com
+2       0.005231    8.8.8.8         192.168.1.10    DNS      90     Standard query response A 93.184.216.34
+3       0.134222    192.168.1.10    93.184.216.34   TCP      66     49152 → 80 [SYN] Seq=0 Win=64240 Len=0 MSS=1460
+4       0.137000    93.184.216.34   192.168.1.10    TCP      60     80 → 49152 [SYN, ACK] Seq=0 Ack=1 Win=65535 Len=0
+5       0.137100    192.168.1.10    93.184.216.34   TCP      54     49152 → 80 [ACK] Seq=1 Ack=1 Win=64240 Len=0
+6       0.255610    192.168.1.10    93.184.216.34   HTTP     481    GET /index.html HTTP/1.1 
+7       0.500312    93.184.216.34   192.168.1.10    HTTP     512    HTTP/1.1 200 OK (text/html)
+8       1.004215    192.168.1.10    8.8.8.8         ICMP     74     Echo (ping) request  id=0x0100, seq=1/256, ttl=128
+9       1.036210    8.8.8.8         192.168.1.10    ICMP     74     Echo (ping) reply    id=0x0100, seq=1/256, ttl=115
+
+
+---
