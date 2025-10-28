@@ -1,0 +1,72 @@
+🧩 Step 1: Create Sample Passwords
+
+We’ll make 5 passwords with increasing strength levels for testing.
+
+Password	Type	Description
+
+password123	Weak	Common and easy to guess
+P@ssword123	Medium	Adds symbol and capitalization
+P@ssW0rd!23	Strong	Mix of uppercase, lowercase, numbers, and symbols
+T!g3r#R@in2025	Very Strong	Random phrase + numbers +symbols
+L!on$!Run@9876#	Extremely Strong Long, complex, and unpredictable
+
+
+
+---
+
+🧮 Step 2: Test Passwords on passwordmeter.com
+
+Typical strength results :
+
+Password	Strength Score	Feedback
+
+password123	22% (Weak)	Too common, lacks symbols and variation
+P@ssword123	46% (Medium)	Better, but still predictable
+P@ssW0rd!23	68% (Strong)	Good mix of characters
+T!g3r#R@in2025	86% (Very Strong)	Strong entropy and variety
+L!on$!Run@9876#	98% (Excellent)	Long, random, highly secure
+
+
+
+---
+
+🧠 Step 3: Learnings / Tips
+
+Use at least 12–16 characters.
+
+Combine uppercase + lowercase + numbers + special symbols.
+
+Avoid using real words, names, or patterns.
+
+Never reuse the same password on multiple sites.
+
+Use a password manager to safely store complex passwords.
+
+
+
+---
+
+🔒 Step 4: Common Password Attacks
+
+Attack Type	Description	Prevention
+
+Brute Force Attack	Tries all possible combinations	Use long, complex passwords
+
+Dictionary Attack	Uses common words and phrases	Avoid real words or simple patterns
+
+Phishing Attack	        Tricks users into revealing passwords Always verify links and websites
+
+Credential Stuffing	Uses leaked passwords on other sites Never reuse passwords
+
+
+
+---
+
+📄 Step 5: Summary
+
+> In this task, I created and tested multiple passwords with varying complexity using passwordmeter.com. The analysis showed that longer passwords with mixed character types significantly improve strength. Understanding common attacks like brute force and dictionary attacks helped reinforce the importance of password complexity and uniqueness.
+
+
+
+
+---
