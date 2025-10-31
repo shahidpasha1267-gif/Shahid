@@ -1,0 +1,77 @@
+Task 7 Report: Identify and Remove Suspicious Browser Extensions
+
+Objective
+
+To learn how to identify and remove potentially harmful or unnecessary browser extensions to improve security and performance.
+
+Tools Used
+
+Web Browser: (e.g., Google Chrome / Mozilla Firefox)
+
+
+Procedure
+
+1. Opened Browser Extension Manager:
+
+In Chrome: Menu (⋮) → More Tools → Extensions
+
+In Firefox: Menu (☰) → Add-ons and themes → Extensions
+
+
+
+2. Reviewed Installed Extensions:
+
+Checked the list of installed extensions.
+
+Reviewed each extension’s permissions and purpose.
+
+
+
+3. Identified Suspicious or Unused Extensions:
+
+Looked for extensions with:
+
+Unknown publishers
+
+Unnecessary permissions (like “Read and change all your data”)
+
+Poor or no reviews
+
+Unfamiliar names
+
+
+4. Removed Suspicious Extensions:
+
+Uninstalled or disabled any extension that appeared unsafe or unneeded.
+
+
+5. Restarted Browser:
+
+Relaunched the browser to apply changes.
+
+Checked for faster performance or improved stability.
+
+
+6. Researched Browser Security:
+
+
+Learned that malicious extensions can:
+
+Steal personal data or browsing history
+
+Display unwanted ads or redirect web pages
+
+Inject malicious scripts into websites
+
+
+Extensions Removed
+
+Extension Name	Reason for Removal	Status
+
+(Example) “Fast Search Pro” Unknown source, too many permissions	Removed
+(Example) “Weather Tab Plus”	Rarely used, requested data access	Removed
+
+
+Outcome
+
+Gained awareness of browser security risks and learned how to manage and remove unsafe extensions to maintain a secure browsing environment.
