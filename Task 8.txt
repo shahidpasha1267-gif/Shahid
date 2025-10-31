@@ -1,0 +1,104 @@
+Task 8 Report: Working with VPN (Virtual Private Network)
+
+Objective
+
+Understand the role of VPNs in protecting privacy and ensuring secure communication.
+
+
+---
+
+Tools Used
+
+VPN Client: ProtonVPN (Free Tier) / Windscribe (Free)
+
+Website for IP Verification: whatismyipaddress.com
+
+Operating System: (Windows / Android / Linux)
+
+
+---
+
+Procedure
+
+1. Selected a VPN Service
+
+Chose a reputable free VPN provider (e.g., ProtonVPN Free Tier).
+
+Created a free account for secure login.
+
+
+2. Downloaded and Installed the VPN Client
+
+Downloaded the official VPN application from the provider’s website.
+
+Installed the client successfully on the system.
+
+
+3. Connected to a VPN Server
+
+Opened the VPN app and logged in.
+
+Selected a nearby VPN server for better speed and stability.
+
+Clicked Connect to establish a secure tunnel.
+
+
+4. Verified IP Address Change
+
+Opened whatismyipaddress.com before and after connection.
+
+Observed that the IP address and location changed after VPN connection — confirming successful tunneling.
+
+
+5. Tested Secure Browsing
+
+Accessed a few websites while connected.
+
+Verified that traffic was encrypted and browsing was stable.
+
+
+6. Disconnected VPN and Compared
+
+Disconnected from the VPN and rechecked IP.
+
+Noted that the IP returned to the original local address.
+
+Observed minor differences in browsing speed (slightly slower when VPN was active).
+
+
+7. Researched VPN Security
+
+Learned that VPNs use encryption protocols (e.g., OpenVPN, WireGuard, IKEv2) to secure data transfer.
+
+Understood how VPNs help protect against tracking, ISP monitoring, and geo-restrictions.
+
+
+---
+
+VPN Benefits
+
+Encrypts internet traffic for privacy and safety
+
+Masks real IP address and hides location
+
+Protects users on public Wi-Fi networks
+
+Helps bypass geo-blocked content
+
+
+VPN Limitations
+
+Can slightly reduce browsing speed
+
+Some free VPNs have limited bandwidth or servers
+
+Not all VPNs are trustworthy — some log user activity
+
+
+
+---
+
+Outcome
+
+Gained hands-on experience in installing, configuring, and testing a VPN connection.
+Understood how VPNs enhance privacy, ensure secure data transmission, and provide anonymity online.
