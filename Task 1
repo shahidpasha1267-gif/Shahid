@@ -1,0 +1,126 @@
+Internship Report — Nmap & Wireshark
+Filename: internship_nmap_wireshark_report.txt
+
+1. Title
+Internship Report — Network Scanning and Packet Analysis (Nmap & Wireshark)
+
+2. Intern Details
+Name: Shahid Pasha
+
+3. Purpose
+This short report documents practical work performed using Nmap (network scanning) and Wireshark (packet capture and analysis). The goal was to learn scanning techniques, collect network captures, and interpret results for network troubleshooting and security assessment in an ethical environment.
+
+4. Tools
+- Nmap (Network Mapper) — host discovery, port scanning, service/version detection, OS detection, NSE scripts.
+- Wireshark — packet capture and analysis.
+- TShark / tcpdump — command-line capture tools often used with Termux or headless systems.
+
+5. Environment / Setup (notes)
+- Desktop: Wireshark is installed on a laptop/desktop running Windows/Linux.
+- Android / Termux: Nmap can be installed in Termux. Common Termux installation commands:
+  - `pkg update && pkg upgrade`
+  - `pkg install nmap`
+  - If unavailable: `pkg install unstable-repo` then `pkg install nmap`
+  - Alternative: use a Linux VM or desktop if Termux installation fails.
+- Packet capture on Android: use `tcpdump` or `tshark` (requires root) or capture on a mirrored port / router and analyze in Wireshark on desktop.
+
+6. Nmap — Tasks performed & commands
+6.1 Host discovery (ping scan)
+  - `nmap -sn 192.168.1.0/24`
+  - Purpose: list live hosts on the LAN.
+
+6.2 TCP SYN scan (default fast port scan, stealth)
+  - `nmap -sS -p1-1000 192.168.1.10`
+  - Purpose: find open TCP ports (1–1000).
+
+6.3 Service and version detection
+  - `nmap -sV -p22,80,443 192.168.1.10`
+  - Purpose: determine services and versions running on open ports.
+
+6.4 OS detection and aggressive scan
+  - `nmap -O -A 192.168.1.10`
+  - `-O` enables OS detection; `-A` enables aggressive options (OS detection, version detection, script scanning, traceroute).
+
+6.5 Specific port & script scan
+  - `nmap -p 80 --script=http-title 192.168.1.10`
+  - Purpose: retrieve webpage title using NSE script.
+
+6.6 Save output for reporting
+  - `nmap -sV -O -oN nmap_scan_192.168.1.10.txt 192.168.1.10`
+  - `-oN` saves grep-friendly normal output.
+
+6.7  Nmap output — excerpt
+  ---------------------------------------------------
+  Starting Nmap 7.93 ( https://nmap.org ) at 2025-10-21 10:00
+  Nmap scan report for 192.168.1.10
+  Host is up (0.00038s latency).
+  Not shown: 995 closed ports
+  PORT    STATE SERVICE VERSION
+  22/tcp  open  ssh     OpenSSH 7.6p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+  80/tcp  open  http    Apache httpd 2.4.29 ((Ubuntu))
+  139/tcp open  netbios-ssn Samba smbd 3.X - 4.X
+  445/tcp open  microsoft-ds Samba smbd 4.5.12
+  MAC Address: AA:BB:CC:DD:EE:FF (Vendor)
+  Device type: general purpose
+  Running: Linux 3.X|4.X
+  OS CPE: cpe:/o:linux:linux_kernel:4
+  OS details: Linux 3.2 - 4.9
+  Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+7. Wireshark — Tasks performed & workflow
+7.1 Capture setup
+  - Start capture on the interface connected to the target network.
+  - Use capture filters to reduce noise (optional), e.g. `host 192.168.1.10` or `tcp port 80`.
+  - For large environments, capture on a mirrored SPAN port or use `tcpdump -i eth0 -w capture.pcap`.
+
+7.2 Common display filters (Wireshark)
+  - `ip.addr == 192.168.1.10`        — packets to/from host
+  - `tcp.port == 80`                 — HTTP traffic
+  - `udp.port == 53`                 — DNS traffic
+  - `http.request`                   — only HTTP requests
+  - `ssl` or `tls`                   — TLS traffic
+  - `tcp.analysis.retransmission`    — retransmissions (network problems)
+
+7.3 Useful analysis tasks
+  - Follow TCP stream: Right-click packet → Follow → TCP Stream to see complete session contents (HTTP requests/responses).
+  - Analyze DNS: filter `dns` to find domain resolution issues or suspicious queries.
+  - Check handshake anomalies: examine TCP three-way handshake for connection failures.
+  - Identify excessive retransmissions, large delays, or out-of-order segments (indicators of congestion or poor link quality).
+  - Use “Statistics” → “Endpoints” / “Conversations” to find top talkers and traffic distribution.
+  - Use “Expert Information” to get a summary of warnings and errors.
+
+7.4 Example observations from captures (sample)
+  - Observed repeated TCP retransmissions between client 192.168.1.15 and server 192.168.1.10 on port 80 — suggests network congestion or packet drops.
+  - Unencrypted HTTP request revealed the URL path and user-agent in a GET request (sensitive data can be exposed over HTTP).
+  - DNS requests to suspicious external domain `bad-example[.]com` were detected — requires follow-up.
+
+8. Correlating Nmap & Wireshark
+- Use Nmap to find open services and ports; then capture traffic to/from those ports in Wireshark to observe real service behavior.
+- Example workflow:
+  1. Nmap discovers HTTP on port 80 of 192.168.1.10.
+  2. Use Wireshark with `ip.addr == 192.168.1.10 && tcp.port == 80` to capture and analyze HTTP requests/responses and identify possible misconfigurations or cleartext credentials.
+
+9. Ethical and legal considerations
+- Only scan and capture traffic on networks and systems you own or have explicit, written permission to test.
+- Unauthorized scanning or packet capture may violate laws and organizational policies. Always get consent from network owners and follow the scope defined by your mentor/supervisor.
+
+10. Challenges & Troubleshooting (common)
+- Nmap install issues in Termux:
+  - Solution attempts: update Termux packages (`pkg update && pkg upgrade`), enable unstable-repo (`pkg install unstable-repo`), then `pkg install nmap`. If still failing, use a desktop Linux VM or install Nmap on a laptop.
+- Wireshark capture limitations:
+  - On mobile devices you may not be able to capture without root. Use packet capture on a desktop, router/bridge with mirroring, or use `tcpdump` + transfer `.pcap` to desktop for analysis.
+- Permissions:
+  - Packet capture tools usually need elevated privileges; run with sudo/root or use appropriate capabilities.
+
+11. Conclusion
+Using Nmap and Wireshark together provides complementary visibility: Nmap finds hosts and services; Wireshark shows protocol-level behavior. Practical experience with these tools improves network troubleshooting and basic security assessment skills. Continued practice should include controlled lab environments, permissioned scans, and deeper study of NSE scripts and Wireshark protocol dissectors.
+
+12. References & Further Reading
+- Nmap official documentation: https://nmap.org
+- Wireshark User Guide: https://www.wireshark.org/docs/
+- Nmap Scripting Engine (NSE) docs and script categories
+- Wireshark display/filter reference
+
+
+-------------------------
+End of report.
